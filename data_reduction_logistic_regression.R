@@ -1,0 +1,5 @@
+plot(log_reg$Gender,log_reg$B.Tech.perc)
+log_reg<-read.csv("C:/Users/pradeep/OneDrive/datasets/2011-15 placements data.csv")
+head(log_reg)
+relation1<-glm(formula=Gender~Back.logs,data=log_reg,family = "binomial")
+summary(relation1)
