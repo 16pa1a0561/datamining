@@ -1,4 +1,0 @@
-# Random sampling of data frame with replacement
-m1<-m[sample(nrow(m),20,replace = TRUE),]
-print(m1)
-print(m)
