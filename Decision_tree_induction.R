@@ -33,7 +33,7 @@ rpart.plot(stu_model,type=5,extra = 2 )
 # Now let's do prediction.
 p<-predict(stu_model,test_data,type="class")
 
-
+# prediction table/confusion matrix
 t<-table(test_data[,9],p)
 print(t)
 
