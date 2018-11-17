@@ -1,16 +1,12 @@
-library(ggplot2)
+# Select the dataset
 m<-read.csv("C:/Users/pradeep/OneDrive/datasets/bbn.csv")
 head(m)
-stu_clust<-kmeans(m[,c(4,5)],2,nstart = 20)
-stu_clust
-table(stu_clust$cluster,m$Placement.status)
-m$cluster<-stu_clust$cluster
-m
+
+# Apply K-means algorithm, the number of clusters choosen as 
+clust<-kmeans(m$B.Tech.perc,2)
+print(clust)
 
 
-class(m$B.Tech.perc)
-m$Back.logs<-as.numeric(m$Backlogs)
-
-# Now, let's plot the clusters.
-ggplot(m,aes(m$B.Tech.perc,m$inter.Diploma.perc,color=stu_clust$cluster))+geom_point()
+plot(m$B.Tech.perc,type = "n")
+text(x=m$B.Tech.perc,labels = m$Placement.status, col = clust$cluster)
 
